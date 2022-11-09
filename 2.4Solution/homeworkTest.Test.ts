@@ -34,7 +34,7 @@ describe("Employee Manager 1.2", () => {
         5. Verify the name field is the original name
         */
         await driver.findElement(bernice).click();
-        await driver.wait(until.elementIsVisible(await driver.findElement(nameInput))
+        await driver.wait(until.elementIsVisible(await driver.findElement(nameDisplay))
         );
         await driver.findElement(nameInput).clear();
         await driver.findElement(nameInput).sendKeys("Test Name");
@@ -46,9 +46,9 @@ describe("Employee Manager 1.2", () => {
         );
 
         */
-       /*
-        expect (await(await driver.findElement(bernice))).toBe("Bernice Ortiz"); // This may cause an error
-        */
+       
+        expect (await(await driver.findElement(bernice))).toBe("Bernice Ortiz"); // .getAttribute("value"))This may cause an error
+        
         });
 
         test("A canceled change doesn't persist", async () => {
@@ -66,7 +66,7 @@ describe("Employee Manager 1.2", () => {
             await driver.findElement(nameInput).clear();
             await driver.findElement(nameInput).sendKeys("Test Name");
             await driver.findElement(cancelButton).click();
-            expect(await (await driver.findElement(nameInput)).getAttribute("value")).toBe("Phillip Weaver"); // May cause an error 
+            expect(await (await driver.findElement(nameInput))).toBe("Phillip Weaver"); // .getAttribute("value")) May cause an error 
 
         });
         
@@ -92,7 +92,7 @@ describe("Employee Manager 1.2", () => {
            
             
             await driver.findElement(bernice).click();
-            expect(await (await driver.findElement(nameInput)).getAttribute("value")).toBe("Bernice Ortiz");
+            expect(await (await driver.findElement(nameInput))).toBe("Bernice Ortiz");// .getAttribute("value") will cause an erro 
             
     });
 });
