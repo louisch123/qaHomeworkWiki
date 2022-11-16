@@ -73,17 +73,17 @@ class Birds extends Animals {
 
 describe("Testing animals", () => {
   test("a basic animal works as expected", () => {
-    let lion = new Animal("lion", "roar", "meat");
+    let lion = new Animals("lion", "roar", "meat", "outback");
     // lion is an animal
     expect(lion instanceof Animals).toBeTruthy();
     // lion.soundOff() has the expected output
     expect(lion.soundOff()).toBe('The lion makes the sound "roar".');
   });
-  describe("Fish", () => {
+  describe("Fishs", () => {
     test("name the fish, what it eats, and the habitat, ")
     // Fish should only have the three parameters listed.
-    let goldfish = new Fish("goldfish", "pellets", true);
-    let shark = new Fish("shark", "fish", true);
+    let goldfish = new Fishs("goldfish", "pellets", "freshwater", "saltwater", "captive");
+    let shark = new Fishs("shark", "fish", "saltwater", "freshwater", "captive");
     it("are animals", () => {
       // Fish *must* extend Animal
       expect(goldfish instanceof Animals).toBeTruthy();
@@ -102,11 +102,11 @@ describe("Testing animals", () => {
   });
   describe("Birds", () => {
     // Bird should actually take four arguments
-    let swallow = new Bird("swallow", "chattering chirp", "insects", 11);
-    let emu = new Bird("emu", "grunt", "plants and insects", 0);
+    let swallow = new Birds("swallow", "chattering chirp", "insects", 11);
+    let emu = new Birds("emu", "grunt", "plants and insects", 0);
     it("are animals", () => {
       // Bird *must* extend Animal
-      expect(swallow instanceof Animal).toBeTruthy();
+      expect(swallow instanceof Animals).toBeTruthy();
     });
     it("make sounds", () => {
       // Bird uses the standard soundOff
