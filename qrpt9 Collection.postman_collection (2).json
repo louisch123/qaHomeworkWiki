@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "55de4cde-6739-4e3b-9382-bc61ed34d39a",
+		"name": "qrpt9 Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24470775"
+	},
+	"item": [
+		{
+			"name": "https://gateway.marvel.com:443/v1/public/characters?ts=123456789&apikey=0f1b7f910cd6edd72f2342e4acc21f44&hash=b84e2d4eed78b68e4274deebd17c03a0&name=Thanos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n/v1/public/characters",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gateway.marvel.com:443/v1/public/characters?ts=123456789&apikey=0f1b7f910cd6edd72f2342e4acc21f44&hash=b84e2d4eed78b68e4274deebd17c03a0",
+					"protocol": "https",
+					"host": [
+						"gateway",
+						"marvel",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"v1",
+						"public",
+						"characters"
+					],
+					"query": [
+						{
+							"key": "ts",
+							"value": "123456789"
+						},
+						{
+							"key": "apikey",
+							"value": "0f1b7f910cd6edd72f2342e4acc21f44"
+						},
+						{
+							"key": "hash",
+							"value": "b84e2d4eed78b68e4274deebd17c03a0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://swapi.devmountain.com/planets?terrain_like=tundra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.devmountain.com/planets?terrain_like=tundra",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"devmountain",
+						"com"
+					],
+					"path": [
+						"planets"
+					],
+					"query": [
+						{
+							"key": "terrain_like",
+							"value": "tundra"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://swapi.devmountain.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.devmountain.com/films",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"devmountain",
+						"com"
+					],
+					"path": [
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://joes-autos.herokuapp.com/api/vehicles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://joes-autos.herokuapp.com/api/vehicles",
+					"protocol": "https",
+					"host": [
+						"joes-autos",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Posting  a new Car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"string_you_want_to_search\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"make\": \"Taber\",\r\n   \"model\": \"Hatchback\",\r\n   \"year\": 2156,\r\n   \"color\": \"Malted\",\r\n   \"price\": 85000  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://joes-autos.herokuapp.com/api/vehicles",
+					"protocol": "https",
+					"host": [
+						"joes-autos",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put to edit-Change price of vehicle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://joes-autos.herokuapp.com/api/vehicles/22/down",
+					"protocol": "https",
+					"host": [
+						"joes-autos",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicles",
+						"22",
+						"down"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting to edit- Removing a Vehicle ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://joes-autos.herokuapp.com/api/vehicles/21",
+					"protocol": "https",
+					"host": [
+						"joes-autos",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"vehicles",
+						"21"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
